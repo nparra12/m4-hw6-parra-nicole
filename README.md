@@ -1,9 +1,8 @@
 # m4-hw6-parra-nicole
 pizza shop assignment
 
-[W3 has beginner friendly resources for JavaScript](https://www.w3schools.com/js/js_variables.asp). Feel free to work down the list on the left if you would like to review JS basics.
 
-Additional MDN Resources:
+Resources used:
 
 - [Primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)
 - [Data Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
