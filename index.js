@@ -10,7 +10,8 @@ function getPizzaOrder() {
   alert("Hi, Thanks for ordering with Web to Pizza!")
   var pizza = {
     // set the 'cost' property to the basePrice
-    // YOUR CODE HERE
+    // YOUR CODE HERE:
+    cost: basePrice
   }
 
   var crust = prompt(
@@ -21,28 +22,85 @@ function getPizzaOrder() {
   // HINT: You may wish to use .toLowerCase() and .trim()
   // if the user specified 'thick' crust, add thickCrustUpcharge
   // to pizza.cost
-  // YOUR CODE HERE
+  // YOUR CODE HERE:
+  if (typeof crust ==='string' && crust){
+    pizza.crust = crust.trim().toLowerCase()
+    console.log(pizza.crust)
+    if(pizza.crust ==='thick') {
+      pizza.cost += thickCrustUpcharge
+    }
+  }
 
+
+//** tricky one below */
   var toppings = prompt("Please enter additional toppings (comma separated)")
   // HINT: prompt() will return an empty string "" if the user presses 'OK' without entering a value
   // if the user enters toppings, use .split(",") to separate toppings into an array
   // if no toppings are given, make sure pizza.toppings is set to []
   // if the user has added toppings, add toppingsFee multiplied by
-  // the number of toppings added to pizza.cost
-  // YOUR CODE HERE
+  // the number of toppings added to pizza.cost (toppings.lenght)
+  // ** == is equality, === is identical
+  // YOUR CODE HERE:
+
+  if (toppings){
+    pizza.toppings = toppings.split(',')
+    console.log(pizza.toppings)
+    pizza.cost += toppingsFee * pizza.toppings.length
+  }else{
+    pizza.toppings=[]
+  }
+
+
+ /**
+  * if (typeof toppings === 'string'){
+  pizza.toppings = toppings.split(',')
+  console.log(pizza.toppings)
+  if(pizza.toppings === "string"){
+    pizza.cost += toppingsFee
+  }
+}
+  * 
+  */
+
 
   var extraCheese = confirm("Would you like extra cheese?")
-  // HINT: confirm() returns a boolean
+
+  // HINT: confirm() returns a boolean (TRUE/FALSE):
   // if the user specifies extra cheese, set pizza.extraCheese to true or false
   // if the user specifies extra cheese, add extraCheeseUpcharge to pizza.cost
   // YOUR CODE HERE
+  /*pizza.extraCheese = true
+
+  if (extraCheese === answer ){
+    alert ('more cheese for you')
+  } else {
+    alert ('next question....')
+  }*/
+
+  if (extraCheese == true){
+    pizza.cost += extraCheeseUpcharge
+    pizza.extraCheese=true;
+  
+    console.log(extraCheese)
+  }else{
+    pizza.extraCheese= false;
+  }
+
 
   var isDelivery = confirm("Is your order for Delivery?")
-  // HINT: confirm() returns a boolean
+  // HINT: confirm() returns a boolean 
   // if order is for delivery, set pizza.saleType to "delivery"
   // if order is NOT for delivery, set pizza.saleType to "take-out"
   // if order if for delivery, add deliveryFee to pizza.cost
   // YOUR CODE HERE
+
+  if (isDelivery){
+    pizza.cost += deliveryFee
+    console.log(isDelivery)
+    pizza.saleType ="delivery"
+  }else{
+    pizza.saleType = "take-out"
+  }
 
   return pizza
 }
